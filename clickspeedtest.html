@@ -20,18 +20,33 @@
 
         <h1>Mouse Clicking Simulator</h1>
 
-        <h2>Click the button.</h2>
+        <h2>Click the button as fast as you can!</h2>
 
         <button id="clickButton">Click me!</button>
         <p id="clickCount">Clicks: 0</p>
+        <p id="timeLeft">Time left: 10 seconds</p>
 
         <script>
             let clickCount = 0;
-    
+            let timeLeft = 10;
+            let timer;
+
             document.getElementById("clickButton").addEventListener("click", function() {
                 clickCount++;
                 document.getElementById("clickCount").innerText = "Clicks: " + clickCount;
             });
 
+            function startTimer() {
+                timer = setInterval(function() {
+                    timeLeft--;
+                    document.getElementById("timeLeft").innerText = "Time left: " + timeLeft + " seconds";
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        alert("Time's up! You clicked " + clickCount + " times.");
+                    }
+                }, 1000);
+            }
+
+            startTimer();
         </script>
 </html>
