@@ -1,0 +1,29 @@
+<DOCTYPE HTML>
+
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <title>salty snacks</title>
+            
+            <style>
+                body {
+                    background-color: #fff8b4;
+                    font-family: Arial, Helvetica, cursive;
+                    text-align: center;
+                }
+
+            </style>
+        </head>
+        <body>
+
+            <h1>Salty Snacks</h1>
+            
+            <h2>lets build our empire!</h2>
+
+            <h4><a href=paymemt>Buy Now</a></h4>
+
+            <h4><a href=paymemt>Buy Now</a></h4>
+
+            <h4><a href=paymemt>Buy Now!</a></h4>
+
+            <h4><a href=paymemt>Buy Now!</a></h4>
