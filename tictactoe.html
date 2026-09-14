@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>tic tac toe - nocaps sleek</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 60px 20px;
+  background: #050505;
+  color: #ffffff;
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  text-transform: lowercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  letter-spacing: 4px;
+  font-weight: 300;
+  margin: 0 0 36px 0;
+  color: #f5f5f5;
+}
+
+a.back {
+  color: #777777;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+a.back:hover {
+  color: #ffffff;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  grid-template-rows: repeat(3, 90px);
+  gap: 6px;
+}
+
+.cell {
+  position: relative;
+  background: #111111;
+  border: 1px solid #333333;
+}
+
+.cell input {
+  display: none;
+}
+
+.pick, .shown {
+  display: none;
+}
+
+.cell .empty:checked ~ .pick {
+  display: flex;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: #666666;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pick-x { left: 0; border-right: 1px solid #222222; }
+.pick-o { right: 0; }
+
+.pick-x:hover { background: #163a2a; color: #4ade80; }
+.pick-o:hover { background: #142c47; color: #60a5fa; }
+
+.cell .mark-x:checked ~ .shown-x,
+.cell .mark-o:checked ~ .shown-o {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.shown-x { color: #4ade80; }
+.shown-o { color: #60a5fa; }
+
+.result {
+  display: none;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 30px;
+  letter-spacing: 2px;
+}
+
+.result-x { color: #4ade80; }
+.result-o { color: #60a5fa; }
+
+.board:has(#c1-x:checked):has(#c2-x:checked):has(#c3-x:checked) ~ .result-x,
+.board:has(#c4-x:checked):has(#c5-x:checked):has(#c6-x:checked) ~ .result-x,
+.board:has(#c7-x:checked):has(#c8-x:checked):has(#c9-x:checked) ~ .result-x,
+.board:has(#c1-x:checked):has(#c4-x:checked):has(#c7-x:checked) ~ .result-x,
+.board:has(#c2-x:checked):has(#c5-x:checked):has(#c8-x:checked) ~ .result-x,
+.board:has(#c3-x:checked):has(#c6-x:checked):has(#c9-x:checked) ~ .result-x,
+.board:has(#c1-x:checked):has(#c5-x:checked):has(#c9-x:checked) ~ .result-x,
+.board:has(#c3-x:checked):has(#c5-x:checked):has(#c7-x:checked) ~ .result-x {
+  display: block;
+}
+
+.board:has(#c1-o:checked):has(#c2-o:checked):has(#c3-o:checked) ~ .result-o,
+.board:has(#c4-o:checked):has(#c5-o:checked):has(#c6-o:checked) ~ .result-o,
+.board:has(#c7-o:checked):has(#c8-o:checked):has(#c9-o:checked) ~ .result-o,
+.board:has(#c1-o:checked):has(#c4-o:checked):has(#c7-o:checked) ~ .result-o,
+.board:has(#c2-o:checked):has(#c5-o:checked):has(#c8-o:checked) ~ .result-o,
+.board:has(#c3-o:checked):has(#c6-o:checked):has(#c9-o:checked) ~ .result-o,
+.board:has(#c1-o:checked):has(#c5-o:checked):has(#c9-o:checked) ~ .result-o,
+.board:has(#c3-o:checked):has(#c5-o:checked):has(#c7-o:checked) ~ .result-o {
+  display: block;
+}
+
+input[type="reset"] {
+  margin-top: 30px;
+  background: none;
+  color: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-family: inherit;
+  font-size: 14px;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+input[type="reset"]:hover {
+  background: #1c1c1c;
+  border-color: #555555;
+}
+</style>
+</head>
+<body>
+
+  <a href="launcher.html" class="back">&larr; back to launcher</a>
+  <h1>tic tac toe</h1>
+
+  <form style="display:flex;flex-direction:column;align-items:center;">
+    <div class="board">
+    <div class="cell">
+      <input type="radio" name="cell1" id="c1-e" class="empty" checked>
+      <input type="radio" name="cell1" id="c1-x" class="mark-x">
+      <input type="radio" name="cell1" id="c1-o" class="mark-o">
+      <label for="c1-x" class="pick pick-x">X</label>
+      <label for="c1-o" class="pick pick-o">O</label>
+      <div class="shown shown-x">X</div>
+      <div class="shown shown-o">O</div>
+    </div>
+    <div class="cell">
+      <input type="radio" name="cell2" id="c2-e" class="empty" checked>
+      <input type="radio" name="cell2" id="c2-x" class="mark-x">
+      <input type="radio" name="cell2" id="c2-o" class="mark-o">
+      <label for="c2-x" class="pick pick-x">X</label>
+      <label for="c2-o" class="pick pick-o">O</label>
+      <div class="shown shown-x">X</div>
+      <div class="shown shown-o">O</div>
+    </div>
+    <div class="cell">
+      <input type="radio" name="cell3" id="c3-e" class="empty" checked>
+      <input type="radio" name="cell3" id="c3-x" class="mark-x">
+      <input type="radio" name="cell3" id="c3-o" class="mark-o">
+      <label for="c3-x" class="pick pick-x">X</label>
+      <label for="c3-o" class="pick pick-o">O</label>
+      <div class="shown shown-x">X</div>
+      <div class="shown shown-o">O</div>
+    </div>
+    <div class="cell">
+      <input type="radio" name="cell4" id="c4-e" class="empty" checked>
+      <input type="radio" name="cell4" id="c4-x" class="mark-x">
+      <input type="radio" name="cell4" id="c4-o" class="mark-o">
+      <label for="c4-x" class="pick pick-x">X</label>
+      <label for="c4-o" class="pick pick-o">O</label>
+      <div class="shown shown-x">X</div>
+      <div class="shown shown-o">O</div>
+    </div>
+    <div class="cell">
+      <input type="radio" name="cell5" id="c5-e" class="empty" checked>
+      <input type="radio" name="cell5" id="c5-x" class="mark-x">
+      <input type="radio" name="cell5" id="c5-o" class="mark-o">
+      <label for="c5-x" class="pick pick-x">X</label>
+      <label for="c5-o" class="pick pick-o">O</label>
+      <div class="shown shown-x">X</div>
+      <div class="shown shown-o">O</div>
+    </div>
+    <div class="cell">
+      <input type="radio" name="cell6" id="c6-e" class="empty" checked>
+      <input type="radio" name="cell6" id="c6-x" class="mark-x">
+      <input type="radio" name="cell6" id="c6-o" class="mark-o">
+      <label for="c6-x" class="pick pick-x">X</label>
+      <label for="c6-o" class="pick pick-o">O</label>
+      <div class="shown shown-x">X</div>
+      <div class="shown shown-o">O</div>
+    </div>
+    <div class="cell">
+      <input type="radio" name="cell7" id="c7-e" class="empty" checked>
+      <input type="radio" name="cell7" id="c7-x" class="mark-x">
+      <input type="radio" name="cell7" id="c7-o" class="mark-o">
+      <label for="c7-x" class="pick pick-x">X</label>
+      <label for="c7-o" class="pick pick-o">O</label>
+      <div class="shown shown-x">X</div>
+      <div class="shown shown-o">O</div>
+    </div>
+    <div class="cell">
+      <input type="radio" name="cell8" id="c8-e" class="empty" checked>
+      <input type="radio" name="cell8" id="c8-x" class="mark-x">
+      <input type="radio" name="cell8" id="c8-o" class="mark-o">
+      <label for="c8-x" class="pick pick-x">X</label>
+      <label for="c8-o" class="pick pick-o">O</label>
+      <div class="shown shown-x">X</div>
+      <div class="shown shown-o">O</div>
+    </div>
+    <div class="cell">
+      <input type="radio" name="cell9" id="c9-e" class="empty" checked>
+      <input type="radio" name="cell9" id="c9-x" class="mark-x">
+      <input type="radio" name="cell9" id="c9-o" class="mark-o">
+      <label for="c9-x" class="pick pick-x">X</label>
+      <label for="c9-o" class="pick pick-o">O</label>
+      <div class="shown shown-x">X</div>
+      <div class="shown shown-o">O</div>
+    </div>
+    </div>
+
+    <div class="result result-x">x wins!</div>
+    <div class="result result-o">o wins!</div>
+
+    <input type="reset" value="reset board">
+  </form>
+
+</body>
+</html>
