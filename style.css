@@ -17,7 +17,7 @@ body {
 }
 
 /* -------------------------
-   headings
+   HEADINGS
 ------------------------- */
 
 h1 {
@@ -32,7 +32,7 @@ h2 {
 }
 
 /* -------------------------
-   normal links / lists
+   NORMAL LISTS
 ------------------------- */
 
 ul {
@@ -55,9 +55,7 @@ li > a {
     text-decoration: none;
     font-size: 16px;
     font-weight: 400;
-    transition:
-        color 0.2s ease,
-        padding-left 0.2s ease;
+    transition: color 0.2s ease, padding-left 0.2s ease;
 }
 
 li > a:hover {
@@ -74,13 +72,12 @@ img.icon {
 }
 
 /* -------------------------
-   SETTINGS PAGE
+   SETTINGS
 ------------------------- */
 
 .topbar {
     max-width: 900px;
     margin: 0 auto 45px;
-    position: relative;
 }
 
 .topbar h1 {
@@ -105,17 +102,18 @@ img.icon {
 .settings-container {
     max-width: 900px;
     margin: 0 auto;
+
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
-/* Individual settings item */
-
 .settings-card {
     width: 100%;
     min-height: 92px;
+
     padding: 22px 24px;
+
     background: #0a0a0a;
     border: 1px solid #1c1c1c;
     border-radius: 12px;
@@ -181,13 +179,106 @@ img.icon {
 
     transition:
         background 0.2s ease,
-        border-color 0.2s ease;
+        border-color 0.2s ease,
+        color 0.2s ease;
 }
 
 .settings-button:hover {
     background: #ffffff;
     color: #000000;
     border-color: #ffffff;
+}
+
+/* -------------------------
+   MY ACCOUNT
+------------------------- */
+
+.account-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 25px;
+    margin-bottom: 18px;
+
+    background: #0a0a0a;
+    border: 1px solid #1c1c1c;
+    border-radius: 12px;
+}
+
+.profile-pfp {
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #000000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    font-weight: 500;
+
+    flex-shrink: 0;
+}
+
+.profile-info h2 {
+    margin: 0 0 6px;
+
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.profile-info p {
+    margin: 0;
+
+    color: #777777;
+    font-size: 13px;
+
+    word-break: break-word;
+}
+
+.account-box {
+    padding: 10px 25px;
+
+    background: #0a0a0a;
+    border: 1px solid #1c1c1c;
+    border-radius: 12px;
+}
+
+.account-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.account-row:last-child {
+    border-bottom: none;
+}
+
+.account-label {
+    color: #777777;
+    font-size: 13px;
+}
+
+.account-value {
+    color: #eeeeee;
+    font-size: 14px;
+    text-align: right;
 }
 
 /* -------------------------
@@ -205,19 +296,23 @@ img.icon {
 
 .games-header h2 {
     margin: 0 0 6px;
+
     font-size: 22px;
     font-weight: 300;
+
     letter-spacing: 2px;
 }
 
 .games-header p {
     margin: 0;
+
     color: #666666;
     font-size: 14px;
 }
 
 .game-card {
     min-height: 100px;
+
     margin-bottom: 14px;
     padding: 22px 24px;
 
@@ -241,12 +336,14 @@ img.icon {
 
 .game-card h2 {
     margin: 0 0 6px;
+
     font-size: 17px;
     font-weight: 400;
 }
 
 .game-card p {
     margin: 0;
+
     color: #777777;
     font-size: 13px;
 }
@@ -282,6 +379,7 @@ img.icon {
 
 .no-games {
     padding: 55px 25px;
+
     text-align: center;
 
     background: #0a0a0a;
@@ -291,53 +389,15 @@ img.icon {
 
 .no-games h2 {
     margin: 0 0 8px;
+
     font-weight: 300;
     letter-spacing: 2px;
 }
 
 .no-games p {
     margin: 0;
+
     color: #666666;
-    font-size: 14px;
-}
-
-/* -------------------------
-   MY ACCOUNT
-------------------------- */
-
-.account-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.account-box {
-    padding: 25px;
-
-    background: #0a0a0a;
-    border: 1px solid #1c1c1c;
-    border-radius: 12px;
-}
-
-.account-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 18px 0;
-    border-bottom: 1px solid #1c1c1c;
-}
-
-.account-row:last-child {
-    border-bottom: none;
-}
-
-.account-label {
-    color: #777777;
-    font-size: 13px;
-}
-
-.account-value {
-    color: #eeeeee;
     font-size: 14px;
 }
 
@@ -361,12 +421,14 @@ img.icon {
 
 .support-card h2 {
     margin: 0 0 8px;
+
     font-size: 17px;
     font-weight: 400;
 }
 
 .support-card p {
     margin: 0 0 18px;
+
     color: #777777;
     font-size: 14px;
     line-height: 1.6;
@@ -379,12 +441,113 @@ img.icon {
 }
 
 /* -------------------------
+   PASSWORD / OVERLAY
+------------------------- */
+
+.password-container {
+    min-height: calc(100vh - 150px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-box {
+    width: 100%;
+    max-width: 380px;
+
+    padding: 35px;
+
+    background: #0a0a0a;
+    border: 1px solid #1c1c1c;
+    border-radius: 14px;
+
+    text-align: center;
+}
+
+.password-box h1 {
+    margin-bottom: 10px;
+}
+
+.password-box p {
+    color: #777777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.password-box input[type="password"] {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    background: #050505;
+    color: #ffffff;
+
+    border: 1px solid #333333;
+    border-radius: 7px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+.password-box input[type="password"]:focus {
+    border-color: #777777;
+}
+
+.password-box button {
+    width: 100%;
+
+    padding: 13px;
+
+    background: #ffffff;
+    color: #000000;
+
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.password-box button:hover {
+    background: #050505;
+    color: #ffffff;
+}
+
+.back-link {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #777777;
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+.back-link:hover {
+    color: #ffffff;
+}
+
+/* -------------------------
    OVERLAY
 ------------------------- */
 
 .overlay {
     display: none;
+
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -400,6 +563,7 @@ img.icon {
     justify-content: center;
 
     text-align: center;
+
     padding: 20px;
 }
 
@@ -410,14 +574,19 @@ img.icon {
 .overlay img.icon {
     width: 40px;
     height: 40px;
+
     margin-bottom: 24px;
+
     opacity: 1;
 }
 
 .overlay .question {
     font-size: 22px;
+
     color: #ffffff;
+
     margin-bottom: 40px;
+
     max-width: 500px;
 }
 
@@ -432,6 +601,7 @@ img.icon {
     border-radius: 8px;
 
     text-decoration: none;
+
     font-size: 15px;
 
     border: 1px solid #333333;
@@ -470,22 +640,31 @@ section.info {
 
 section.info h2 {
     font-weight: 300;
+
     letter-spacing: 2px;
+
     color: #f5f5f5;
+
     margin-bottom: 14px;
+
     border-bottom: 1px solid #1c1c1c;
+
     padding-bottom: 8px;
 }
 
 section.info p {
     color: #bbbbbb;
+
     font-size: 15px;
+
     line-height: 1.6;
 }
 
 section.info a {
     color: #ffffff;
+
     text-decoration: underline;
+
     text-underline-offset: 3px;
 }
 
@@ -525,6 +704,7 @@ iframe.spotify {
 
 footer {
     position: fixed;
+
     left: 0;
     right: 0;
     bottom: 0;
@@ -534,6 +714,7 @@ footer {
     padding: 14px 0;
 
     background: #050505;
+
     border-top: 1px solid #1c1c1c;
 
     text-align: center;
@@ -541,9 +722,11 @@ footer {
 
 footer a {
     color: #777777;
+
     text-decoration: none;
 
     font-size: 13px;
+
     letter-spacing: 1px;
 }
 
@@ -574,6 +757,7 @@ footer a:hover {
     justify-content: center;
 
     font-size: 22px;
+
     text-decoration: none;
 
     border: 1px solid #333333;
@@ -613,11 +797,13 @@ footer a:hover {
     gap: 8px;
 
     max-width: 220px;
+
     margin-bottom: 20px;
 }
 
 .pin-input {
     position: absolute;
+
     opacity: 0;
 
     width: 0;
@@ -640,6 +826,7 @@ footer a:hover {
     justify-content: center;
 
     font-size: 17px;
+
     cursor: pointer;
 
     transition:
@@ -657,8 +844,6 @@ footer a:hover {
     color: #000000;
     border-color: #ffffff;
 }
-
-/* PIN steps */
 
 #step2,
 #step3,
@@ -721,8 +906,10 @@ input[type="reset"].cancel {
 
     .settings-button {
         width: 100%;
+
         margin-left: 64px;
         margin-top: -5px;
+
         text-align: center;
     }
 
@@ -733,14 +920,54 @@ input[type="reset"].cancel {
 
     .play-button {
         width: 100%;
+
         margin-left: 0;
+
         text-align: center;
+    }
+
+    .profile-card {
+        padding: 20px;
+    }
+
+    .profile-pfp {
+        width: 55px;
+        height: 55px;
+        font-size: 21px;
+    }
+
+    .profile-info h2 {
+        font-size: 18px;
+    }
+
+    .profile-info p {
+        font-size: 12px;
+    }
+
+    .account-box {
+        padding: 5px 18px;
+    }
+
+    .account-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .account-value {
+        text-align: left;
+    }
+
+    .password-box {
+        padding: 28px 22px;
     }
 
     .overlay .buttons {
         flex-direction: column;
+
         width: 100%;
         max-width: 260px;
+
         gap: 10px;
     }
 
